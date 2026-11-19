@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Movie {
+  id        String   @id @default(cuid())
+  title     String
+  duration  Int
+  watched   Boolean  @default(false)
+  prerequisites String[]
+}
+
+
