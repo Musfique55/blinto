@@ -41,8 +41,14 @@ const rewatchOrder = asyncHandler(async (req: Request, res: Response) => {
   res.status(200).json(rewatch);
 });
 
+const getAllMovies = asyncHandler(async (req: Request, res: Response) =>{
+    const result = await moviesService.getAllMovies();
+    return result;
+})
+
 export const moviesController = {
   createMovie,
   updateMovie,
-  rewatchOrder
+  rewatchOrder,
+  getAllMovies
 };
