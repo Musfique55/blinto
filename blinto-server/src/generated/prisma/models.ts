@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Movie'
+export type * from './models/cinema'
 export type * from './commonInputTypes'

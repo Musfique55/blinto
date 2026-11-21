@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Movie: 'Movie'
+  Movie: 'Movie',
+  cinema: 'cinema'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -80,6 +81,15 @@ export const MovieScalarFieldEnum = {
 } as const
 
 export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof MovieScalarFieldEnum]
+
+
+export const CinemaScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  bundleSizes: 'bundleSizes'
+} as const
+
+export type CinemaScalarFieldEnum = (typeof CinemaScalarFieldEnum)[keyof typeof CinemaScalarFieldEnum]
 
 
 export const SortOrder = {
