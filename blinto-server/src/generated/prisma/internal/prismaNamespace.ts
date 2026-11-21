@@ -397,7 +397,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Movie: 'Movie'
+  Movie: 'Movie',
+  cinema: 'cinema'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -413,7 +414,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "movie"
+    modelProps: "movie" | "cinema"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -491,6 +492,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    cinema: {
+      payload: Prisma.$cinemaPayload<ExtArgs>
+      fields: Prisma.cinemaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.cinemaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.cinemaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>
+        }
+        findFirst: {
+          args: Prisma.cinemaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.cinemaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>
+        }
+        findMany: {
+          args: Prisma.cinemaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>[]
+        }
+        create: {
+          args: Prisma.cinemaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>
+        }
+        createMany: {
+          args: Prisma.cinemaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.cinemaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>[]
+        }
+        delete: {
+          args: Prisma.cinemaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>
+        }
+        update: {
+          args: Prisma.cinemaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>
+        }
+        deleteMany: {
+          args: Prisma.cinemaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.cinemaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.cinemaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>[]
+        }
+        upsert: {
+          args: Prisma.cinemaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cinemaPayload>
+        }
+        aggregate: {
+          args: Prisma.CinemaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCinema>
+        }
+        groupBy: {
+          args: Prisma.cinemaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CinemaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.cinemaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CinemaCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -540,6 +615,15 @@ export const MovieScalarFieldEnum = {
 } as const
 
 export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof MovieScalarFieldEnum]
+
+
+export const CinemaScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  bundleSizes: 'bundleSizes'
+} as const
+
+export type CinemaScalarFieldEnum = (typeof CinemaScalarFieldEnum)[keyof typeof CinemaScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -764,6 +848,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   movie?: Prisma.MovieOmit
+  cinema?: Prisma.cinemaOmit
 }
 
 /* Types for Logging */

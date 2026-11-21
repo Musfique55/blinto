@@ -46,3 +46,8 @@ export { Prisma }
  * 
  */
 export type Movie = Prisma.MovieModel
+/**
+ * Model cinema
+ * 
+ */
+export type cinema = Prisma.cinemaModel

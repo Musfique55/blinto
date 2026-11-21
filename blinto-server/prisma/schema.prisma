@@ -20,5 +20,10 @@ model Movie {
   prerequisites String[]
 }
 
+model cinema {
+  id String @id @default(cuid())
+  name String @unique
+  bundleSizes Int[]
+}
 
 
